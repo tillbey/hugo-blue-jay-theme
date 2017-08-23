@@ -1,0 +1,20 @@
+{{ $ := .global }}
+<ul class="submenu">
+  {{ range sort .section.Sections ".Params.weight" }}
+    <li class="{{ if eq $.URL .URL }}active{{ end }}">
+      <a href="{{ .URL }}">{{ .Title }}</a>
+      {{ if hasPrefix $.URL .URL }}
+        <ul class="pagemenu">
+          {{ range sort .Pages }}
+            <li class="{{ if eq $.URL .URL }}active{{ end }}">
+              <a href="{{ .URL }}">{{ .Title }}</a>
+              {{ if eq $.URL .URL }}
+                {{ .TableOfContents }}
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ end }}
+</ul>

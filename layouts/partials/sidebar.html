@@ -1,0 +1,10 @@
+<aside class="nav">
+  <nav>
+    {{ range .Site.Sections }}
+      {{ if hasPrefix $.URL .URL }}
+        <a href="{{ .URL }}"><h1>{{ .Title }}</h1></a>
+        {{ partial "submenu.html" (dict "section" . "global" $) }}
+      {{ end }}
+    {{ end }}
+  </nav>
+</aside>

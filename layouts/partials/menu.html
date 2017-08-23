@@ -1,0 +1,10 @@
+<ul class="menu">
+  {{ range sort .Site.Sections ".Params.weight"}}
+      <li class="{{ if hasPrefix $.URL .URL }}active{{ end }}">
+        <a href="{{ .URL }}">{{ .Title }}</a>
+        {{ if .Sections }}
+          {{ partial "submenu.html" (dict "section" . "global" $) }}
+        {{ end }}
+      </li>
+  {{ end }}
+</ul>
