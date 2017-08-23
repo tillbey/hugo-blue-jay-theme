@@ -1,9 +1,11 @@
 {{ define "main"}}
-  {{ partial "content.html" . }}
-  {{ range .Data.Pages }}
-      {{ .Params.id }}
-      {{ .Render "summary" }}
-  {{ end }}
+  <main>
+    {{ partial "content.html" . }}
+    {{ range .Data.Pages }}
+        {{ .Params.id }}
+        {{ .Render "summary" }}
+    {{ end }}
+  </main>
 {{ end}}
 
 {{ define "aside" }}

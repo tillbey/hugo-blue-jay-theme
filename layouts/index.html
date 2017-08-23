@@ -1,16 +1,18 @@
 {{ define "main" }}
-  <h1>Home page</h1>
-      {{ .Content }}
-    {{ range .Data.Pages }}
-      <section>
-        {{ .Title }}
-      </section>
-    {{ end }}
+  <main class="homepage">
+    <section>
+      <h1>Home page</h1>
+          {{ .Content }}
+    </section>
+  </main>
 {{ end }}
 
 {{ define "aside" }}
-  <ul>
-    <li>bla</li>
-    <li>blup</li>
-  </ul>
+  <aside class="homepage">
+      {{ range first 6 .Data.Pages }}
+      <article>
+        {{ .Render "list" }}
+      </article>
+      {{ end }}
+  </aside>
 {{ end }}

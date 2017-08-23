@@ -85,6 +85,19 @@ aside {
   border-radius: 3px;
 }
 
+aside.homepage {
+  position: relative;
+  float: right;
+  background-color: none;
+  width: calc(var(--sidebar-width) * 1.5)
+
+}
+
+main.homepage {
+  margin-left: var(--float-margins);
+  margin-right: calc(var(--sidebar-width) * 1.5 + 2 * var(--float-margins));
+}
+
 /*section:nth-of-type(2n) {
   --float-color: var(--background-color);
   --text-color: var(--light-back-color);
@@ -93,6 +106,16 @@ aside {
 
 img {
   max-width: 100%;
+}
+
+footer {
+  color: var(--edge-color);
+  margin: 0 auto;
+  /*border: 1px solid;*/
+  /*width: 80%;*/
+  padding: 60px;
+  padding-top: 0;
+  margin-left: calc(var(--sidebar-width) + 2 * var(--float-margins));
 }
 
 header {
@@ -135,6 +158,7 @@ nav a {
   /*border: 1px solid;*/
 }
 
+nav a:link { color: var(--text-color); }
 nav a:visited { color: var(--text-color); }
 
 header a {
@@ -220,6 +244,10 @@ header .submenu a {
   box-sizing: border-box;
   padding: 5px 15px;
   height: 30px;
+}
+
+header .pagemenu {
+  display: none;
 }
 
 #TableOfContents {
