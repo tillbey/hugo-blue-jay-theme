@@ -83,6 +83,8 @@ aside {
   box-sizing: border-box;
   box-shadow: none;
   border-radius: 3px;
+  max-height: calc(100% - 2 * var(--menu-height));
+  overflow: scroll;
 }
 
 aside.homepage {
@@ -113,7 +115,7 @@ footer {
   margin: 0 auto;
   /*border: 1px solid;*/
   /*width: 80%;*/
-  padding: 60px;
+  padding: calc(var(--float-margins) * 2);
   padding-top: 0;
   margin-left: calc(var(--sidebar-width) + 2 * var(--float-margins));
 }
