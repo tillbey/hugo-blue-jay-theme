@@ -21,6 +21,7 @@ body {
   overflow: auto;
 }
 
+
 a:link { color: var(--theme-color); }
 a:visited { color: var(--light-back-color); }
 a:hover { color: var(--highlight-color); }
@@ -63,6 +64,7 @@ aside, article, section {
   border-radius: 10px;
   border: 1px solid var(--edge-color);
   box-shadow: 5px 5px 10px var(--shadow-color);
+  position: relative;
 }
 
 section {
@@ -110,7 +112,21 @@ img {
   max-width: 100%;
 }
 
-footer {
+img[alt="before"] {
+  width: 35%;
+  /*float: left;*/
+}
+
+img[alt="after"] {
+  width: 35%;
+  float: right;
+}
+
+img[alt="after"] ~ * {
+  background-color: pink;
+}
+
+body > footer {
   color: var(--edge-color);
   margin: 0 auto;
   /*border: 1px solid;*/
@@ -406,6 +422,11 @@ nav li.active > a {
 
 aside .submenu {
   display: block;
+}
+
+::selection {
+  color: var(--edge-color);
+  background-color: rgba(80, 141, 177, 0.8);
 }
 
 .github-corner:hover .octo-arm {
