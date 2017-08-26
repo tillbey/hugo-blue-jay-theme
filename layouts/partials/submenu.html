@@ -13,6 +13,7 @@
               {{ end }}
             </li>
           {{ end }}
+          {{ partial "submenu.html" (dict "section" . "global" $) }}
         </ul>
       {{ end }}
     </li>
