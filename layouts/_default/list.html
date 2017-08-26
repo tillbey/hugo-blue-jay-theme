@@ -1,4 +1,4 @@
 <li>
   <a href="{{ .URL }}">{{ .Title }}</a>
-  {{ safeHTML (index (findRE "<p>.*?\\." .Content 1) 0) }}</p>
+  <p>{{ safeHTML (index (findRE ".*?\\." ( .Plain) 1) 0) }}</p>
 </li>
