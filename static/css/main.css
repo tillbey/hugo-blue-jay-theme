@@ -57,6 +57,20 @@ main {
   /*border: 1px solid gray;*/
 }
 
+pre {
+  background-color: var(--background-color);
+  padding: 5px;
+  border-radius: 3px;
+  overflow-x: scroll;
+}
+
+code {
+  color: var(--float-color);
+  background-color: var(--background-color);
+  border-radius: 3px;
+  /*padding: 2px;*/
+}
+
 aside, article, section {
   background-color: var(--float-color);
   margin: var(--float-margins);
@@ -64,17 +78,13 @@ aside, article, section {
   border-radius: 10px;
   border: 1px solid var(--edge-color);
   box-shadow: 5px 5px 10px var(--shadow-color);
-  position: relative;
+  /*position: relative;*/
 }
 
 section {
   border-radius: 3px;
   box-shadow: none;
   border: none;
-}
-
-pre {
-  overflow-x: scroll;
 }
 
 aside {
@@ -114,20 +124,6 @@ main.homepage {
 
 img {
   max-width: 100%;
-}
-
-img[alt="before"] {
-  width: 35%;
-  /*float: left;*/
-}
-
-img[alt="after"] {
-  width: 35%;
-  float: right;
-}
-
-img[alt="after"] ~ * {
-  background-color: pink;
 }
 
 body > footer {
@@ -430,7 +426,7 @@ aside .submenu {
 
 ::selection {
   color: var(--edge-color);
-  background-color: rgba(80, 141, 177, 0.8);
+  background-color: var(--theme-color);
 }
 
 .github-corner:hover .octo-arm {

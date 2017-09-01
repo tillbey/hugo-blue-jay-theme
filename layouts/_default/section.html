@@ -2,12 +2,12 @@
   <main>
     {{ partial "content.html" . }}
     {{ range .Data.Pages }}
-        <!-- {{ .Params.id }} -->
+        {{ .Params.id }}
         {{ .Render "summary" }}
     {{ end }}
     {{ range .Sections }}
-        <article class="summary">
-          <h1><a href="{{ .URL }}">{{ .Title }}</a></h1>
+        <article class="single">
+          <a href="{{ .URL }}"><h1>{{ .Title }}</h1></a>
           {{ .Content }}
         </article>
     {{ end }}
