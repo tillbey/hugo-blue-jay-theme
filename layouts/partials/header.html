@@ -1,8 +1,8 @@
-<header>
+<header class="">
   <nav class="header-menu">
       <input type="checkbox" id="navicon"/>
-      <a class="navicon menui" href="#"><label class="icon" for="navicon">&#xf0c9;</label></a>
-      <a href="{{ .Site.BaseURL }}search" class="menui search icon">&#xf002;</a>
+      <a class="navicon menui" href="#"><label for="navicon"><i class="fa fa-bars"></i></label></a>
+      <a href="{{ .Site.BaseURL }}search" class="menui search"><i class="fa fa-search"></i></a>
       <a href="{{ .Site.BaseURL }}" class="menui logo"><img src="/images/logo.png" alt="Home"><span>Tahiti</span></a>
       {{ partial "menu.html" . }}
   </nav>

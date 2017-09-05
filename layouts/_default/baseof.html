@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   {{ partial "head.html" . }}
+  {{ block "head-extra" . }}
+  {{ end }}
 <body>
 
   {{ partial "header.html" . }}
 
-  {{ block "aside" .}}
+  {{ block "aside" . }}
   {{ end }}
 
-  {{ block "main" .}}
+  {{ block "main" . }}
   {{ end }}
 
   {{ partial "footer.html" . }}

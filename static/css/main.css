@@ -1,11 +1,5 @@
 @import "settings.css";
 
-@font-face {
-    font-family: FontAwesome;
-    src: url(fontawesome-webfont.woff);
-}
-
-
 * {
   color: var(--text-color);
 }
@@ -29,25 +23,31 @@ a:hover { color: var(--highlight-color); }
 
 h1, h2, h3, h4 {
   color: var(--heading-color);
+
 }
 
 main h1 {
-  padding-top: calc(var(--menu-height) * 1.5 + 20px);
-  margin-top: calc(var(--menu-height) * -1.5);
+  /*padding-bottom: .5em;*/
+  /*padding-top: 1em*/
+  font-size: 2em;
+  color: var(--theme-color);
+  /*background-color: gray;*/
+  text-align: center;
 }
 
 main h2, main h3, main h4 {
-  padding-top: calc(var(--menu-height) * 1.5 + 2px);
+  padding-top: calc(var(--menu-height) * 1.5 + .2em);
   margin-top: calc(var(--menu-height) * -1.5);
 }
 
-.icon {
-  font-family: FontAwesome;
-  font-style: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.summary {
+  padding-top: 0px;
 }
+
+.summary h1 {
+  font-size: 1.5em;
+}
+
 
 main {
   background-color: transparent;
@@ -74,11 +74,11 @@ code {
 aside, article, section {
   background-color: var(--float-color);
   margin: var(--float-margins);
-  padding: var(--float-margins) 40px;
+  padding: var(--float-margins) calc(var(--float-margins) * 4);
   border-radius: 10px;
   border: 1px solid var(--edge-color);
   box-shadow: 5px 5px 10px var(--shadow-color);
-  /*position: relative;*/
+  position: relative;
 }
 
 section {
@@ -104,26 +104,99 @@ aside {
 }
 
 aside.homepage {
-  position: relative;
-  float: right;
-  background-color: none;
-  width: calc(var(--sidebar-width) * 1.5)
-
+  position: absolute;
+  right: var(--float-margins);
+  left: auto;
+  top: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: calc(var(--sidebar-width) * 1.5);
+  z-index: 20;
 }
 
 main.homepage {
-  margin-left: var(--float-margins);
-  margin-right: calc(var(--sidebar-width) * 1.5 + 2 * var(--float-margins));
+  padding-top: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-/*section:nth-of-type(2n) {
+.featureheading {
+  position: relative;
+  border: 1px solid pink;
+  padding: 0;
+}
+
+.featureheading h1 {
+  text-align: center;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  z-index: 30;
+  width: 100%;
+  font-variant: small-caps;
+  font-size: 2.5em;
+  color: white;
+  text-shadow: 2px 2px 2px var(--shadow-color);;
+}
+
+.homepage hr {
+  display: none;
+}
+
+section {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding-right: calc(var(--sidebar-width) * 1.5 + 2 * var(--float-margins))
+}
+
+/*section:first-of-type {
+  border-top-style: solid;
+  border-radius: 3px 3px 0 0;
+}*/
+
+section:nth-of-type(2n) {
+  --text-color: white;
   --float-color: var(--background-color);
-  --text-color: var(--light-back-color);
   --heading-color: var(--theme-color);
+}
+
+/*section:last-of-type {
+  border-bottom-style: solid;
+  border-radius: 0 0 3px 3px;
 }*/
 
 img {
   max-width: 100%;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  padding-left: 0;
+}
+
+.summary:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.summary img.feature {
+  position: absolute;
+  /*max-width: calc(var(--sidebar-width) / 2);*/
+  align-self: flex-start;
+  height: 100%;
+  /*border: 1px solid;*/
+  border-radius: 9px 0 0 9px;
+}
+
+.summary .content {
+  /*position: relative;*/
+  margin-left: 120px;
+  display: block;
+  float: left;
 }
 
 body > footer {
@@ -147,6 +220,11 @@ header {
   padding: 0px;
   display: block;
   box-shadow: 0px 5px 10px var(--shadow-color);
+  /*transition: all .5s;*/
+}
+
+header.transparent {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 header nav {
@@ -353,10 +431,10 @@ nav li.active > a {
   :root {
     --float-margins: 5px;
   }
-
+/*
   article {
     padding: var(--float-margins) 10px;
-  }
+  }*/
 
   header .menu {
     display: none;

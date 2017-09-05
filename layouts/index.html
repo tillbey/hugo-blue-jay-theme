@@ -1,9 +1,14 @@
 {{ define "main" }}
   <main class="homepage">
-    <section>
-      <h1>Home page</h1>
-          {{ .Content }}
-    </section>
+    <div class="featureheading">
+      <img src="images/feature.jpg" alt="">
+      <h1>{{ .Page.Title }}</h1>
+    </div>
+    {{ range (findRE "(?s).*?(<hr />|$)" .Content) }}
+      <section>
+        {{ safeHTML . }}
+      </section>
+    {{ end }}
   </main>
 {{ end }}
 
@@ -15,4 +20,31 @@
       </article>
       {{ end }}
   </aside>
+{{ end }}
+
+{{ define "head-extra" }}
+  <style>
+    header {background-color: rgba(255, 255, 255, 0);}
+  </style>
+  <script>
+  window.addEventListener('scroll', function () {
+      header = document.querySelectorAll("header")[0]
+      scrollPos = document.getElementsByTagName("body")[0].scrollTop;
+      img = document.getElementsByClassName("featureheading")[0].offsetHeight
+      text = document.getElementsByTagName("h1")[0].offsetHeight
+      elementStyles = window.getComputedStyle(document.documentElement)
+      menuHeight = parseInt(elementStyles.getPropertyValue('--menu-height'), 10);
+      limit = (img - text) / 2 - menuHeight
+      console.log(limit);
+      if (scrollPos < limit) {
+          header.style.backgroundColor = `rgba(255, 255, 255, 0)`;
+      }
+      else if (scrollPos < img) {
+          header.style.backgroundColor = `rgba(255, 255, 255, ${(scrollPos - limit) / limit})`;
+      }
+      else {
+          header.style.backgroundColor = `rgba(255, 255, 255, 1)`;
+      }
+  });
+  </script>
 {{ end }}
