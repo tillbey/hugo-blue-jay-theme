@@ -124,6 +124,7 @@ main.homepage {
   position: relative;
   border: 1px solid pink;
   padding: 0;
+  height: 100%;
 }
 
 .featureheading h1 {
@@ -137,6 +138,16 @@ main.homepage {
   font-size: 2.5em;
   color: white;
   text-shadow: 2px 2px 2px var(--shadow-color);;
+}
+
+.featureheading img {
+  position: relative;
+  height: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  /*width: 100%;*/
+  overflow-y: hidden;
+  object-fit: cover;
 }
 
 .homepage hr {
