@@ -1,5 +1,32 @@
 @import "settings.css";
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: '/fonts/SourceSansPro-Regular.otf.woff';
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: '/fonts/SourceSansPro-It.otf.woff';
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: '/fonts/SourceSansPro-Bold.otf.woff';
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: '/fonts/SourceSansPro-BoldIt.otf.woff';
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+
 * {
   color: var(--text-color);
 }
