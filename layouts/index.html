@@ -1,6 +1,6 @@
 {{ define "main" }}
   <main class="homepage">
-    <div class="featureheading">
+    <div class="feature">
       <img src="images/feature.jpg" alt="">
       <h1>{{ .Page.Title }}</h1>
     </div>
@@ -27,20 +27,24 @@
     header {background-color: rgba(255, 255, 255, 0);}
   </style>
   <script>
+  window.$ = function (x) {return document.querySelectorAll(x)};
   window.addEventListener('scroll', function () {
-      header = document.querySelectorAll("header")[0]
-      scrollPos = document.getElementsByTagName("body")[0].scrollTop;
-      img = document.getElementsByClassName("featureheading")[0].offsetHeight
-      text = document.getElementsByTagName("h1")[0].offsetHeight
-      elementStyles = window.getComputedStyle(document.documentElement)
+      header = $("header")[0];
+      image = $(".feature img")[0];
+      scrollPos = $("body")[0].scrollTop;
+      img = $(".feature")[0].offsetHeight;
+      text = $("h1")[0].offsetHeight;
+      elementStyles = window.getComputedStyle(document.documentElement);
       menuHeight = parseInt(elementStyles.getPropertyValue('--menu-height'), 10);
-      limit = (img - text) / 2 - menuHeight
+      limit = (img - text) / 2 - menuHeight;
       console.log(limit);
       if (scrollPos < limit) {
           header.style.backgroundColor = `rgba(255, 255, 255, 0)`;
+          image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
       }
       else if (scrollPos < img) {
           header.style.backgroundColor = `rgba(255, 255, 255, ${(scrollPos - limit) / limit})`;
+          image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
       }
       else {
           header.style.backgroundColor = `rgba(255, 255, 255, 1)`;

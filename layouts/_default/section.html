@@ -2,14 +2,10 @@
   <main>
     {{ partial "content.html" . }}
     {{ range .Data.Pages }}
-        {{ .Params.id }}
         {{ .Render "summary" }}
     {{ end }}
     {{ range .Sections }}
-        <article class="single">
-          <a href="{{ .URL }}"><h1>{{ .Title }}</h1></a>
-          {{ .Content }}
-        </article>
+        {{ partial "summary.html" . }}
     {{ end }}
   </main>
 {{ end}}

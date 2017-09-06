@@ -1,8 +1,15 @@
 {{ define "main" }}
   <main>
-   <article class="single">
-     <h1>{{ .Title }}</h1>
-     {{ .Content }}
-   </article>
+    <article class="single">
+      <img class="feature" src="{{ .URL }}/feature.jpg" alt="">
+      <h1>{{ .Title }}</h1>
+      <div class="body">
+        <div class="content">{{ .Content }}</div>
+      </div>
+    </article>
   </main>
+{{ end }}
+
+{{ define "aside" }}
+  {{ partial "sidebar.html" . }}
 {{ end }}
