@@ -3,21 +3,31 @@
         <label class="label" for="search">Search term:</label>
         <input class="input" id="search" type="search" name="search" placeholder="e.g. About us" autocomplete="off" />
 
-        <ul class="list  list--results" id="list">
+        <div id="list">
             <!-- results go here -->
-      	</ul>
+      	</div>
     </form>
 </div>
 
 <script type="text/javascript" src="/scripts/fetch.js"></script>
 <script type="text/javascript">
-    const endpoint = "/scripts/search.json";
-
+    const endpoint = "/tahiti/index.json";
     const pages = [];
 
     fetch(endpoint)
         .then(blob => blob.json())
         .then(data => pages.push(...data))
+
+    function loadPage(href) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", href, false);
+                xmlhttp.send();
+                if (xmlhttp.status == 404) {
+                  return '';
+                } else {
+                  return xmlhttp.responseText;
+                }
+    }
 
     function findResults(termToMatch, pages) {
         return pages.filter(item => {
@@ -27,17 +37,18 @@
     }
 
     function displayResults() {
-        const resultsArray = findResults(this.value, pages);
-        const html = resultsArray.map(item => {
-          return `
-                <li class="item">
-                </li>
-                `;
-        }).join('');
-        if ((resultsArray.length == 0) || (this.value == '')) {
-            resultsList.innerHTML = `<p>Sorry, nothing was found</p>`;
+        if (this.value.length > 2) {
+          const resultsArray = findResults(this.value, pages);
+          const html = resultsArray.map(item => {
+            return loadPage(item.uri + "/search.html")
+          }).join('');
+          if ((html.length == 0) || (this.value == '')) {
+              resultsList.innerHTML = `<p>Sorry, nothing was found</p>`;
+          } else {
+              resultsList.innerHTML = html;
+          }
         } else {
-            resultsList.innerHTML = html;
+          resultsList.innerHTML = '';
         }
     }
 

@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <main>
+    {{ .Content }}
+    {{ partial "search.html" . }}
+  </main>
+{{ end }}
+
+{{ define "aside" }}
+  <aside>
+      {{ range first 6 .Data.Pages }}
+      <article>
+        {{ .Render "list" }}
+      </article>
+      {{ end }}
+  </aside>
+{{ end }}
