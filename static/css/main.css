@@ -264,12 +264,12 @@ img {
 
 .single .feature {
   position: relative;
-  height: calc(var(--menu-height) * 2);
+  height: calc(var(--menu-height) * 3);
   width: 100%;
   object-fit: cover;
-  object-position: 0 0;
+  object-position: 50% 50%;
   border-radius: calc(var(--rad) - 1px) calc(var(--rad) - 1px) 0 0;
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .single h1 {
