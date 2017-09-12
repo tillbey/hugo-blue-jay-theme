@@ -37,7 +37,7 @@
     }
 
     function displayResults() {
-        if (this.value.length > 2) {
+        if (this.value.length > 0) {
           const resultsArray = findResults(this.value, pages);
           const html = resultsArray.map(item => {
             return loadPage(item.uri + "/search.html")
