@@ -3,7 +3,7 @@
   <img class="feature" src="{{ .URL }}feature.jpg" alt="">
   <div class="body">
     <h1>{{ .Title }}</h1>
-    <div class="content">{{ .Plain }}</div>
+    <div class="content">{{ first 500 .Plain }}</div>
   </div>
 </article>
 </a>
