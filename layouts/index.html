@@ -12,19 +12,10 @@
   </main>
 {{ end }}
 
-{{ define "aside" }}
-  <aside class="homepage">
-      {{ range first 6 .Data.Pages }}
-      <article>
-        {{ .Render "list" }}
-      </article>
-      {{ end }}
-  </aside>
-{{ end }}
 
 {{ define "head-extra" }}
   <style>
-    header {background-color: rgba(255, 255, 255, 0);}
+    header {--menu-color: rgba(255, 255, 255, 0.5);}
   </style>
   <script>
   window.$ = function (x) {return document.querySelectorAll(x)};
@@ -37,17 +28,18 @@
       elementStyles = window.getComputedStyle(document.documentElement);
       menuHeight = parseInt(elementStyles.getPropertyValue('--menu-height'), 10);
       limit = (img - text) / 2 - menuHeight;
+      startValue = 0.5
       console.log(limit);
       if (scrollPos < limit) {
-          header.style.backgroundColor = `rgba(255, 255, 255, 0)`;
-          image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
+          header.style.setProperty('--menu-color', `rgba(255, 255, 255, ${startValue})`);
+          // image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
       }
       else if (scrollPos < img) {
-          header.style.backgroundColor = `rgba(255, 255, 255, ${(scrollPos - limit) / limit})`;
-          image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
+          header.style.setProperty('--menu-color', `rgba(255, 255, 255, ${startValue + (scrollPos - limit) / (startValue + limit)})`);
+          // image.style.filter = `blur(${(scrollPos / limit) * 10}px)`;
       }
       else {
-          header.style.backgroundColor = `rgba(255, 255, 255, 1)`;
+          header.style.setProperty('--menu-color', `rgba(255, 255, 255, 1)`);
       }
   });
   </script>

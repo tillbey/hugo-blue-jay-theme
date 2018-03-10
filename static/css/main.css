@@ -86,7 +86,7 @@ main {
 }
 
 pre {
-  background-color: var(--background-color);
+  background-color: var(--theme-color);
   padding: 5px;
   border-radius: 3px;
   overflow-x: scroll;
@@ -94,7 +94,7 @@ pre {
 
 code {
   color: var(--float-color);
-  background-color: var(--background-color);
+  background-color: var(--theme-color);
   border-radius: 3px;
   /*padding: 2px;*/
 }
@@ -152,7 +152,7 @@ main.homepage {
   position: relative;
   padding: 0;
   box-sizing: border-box;
-  /*height: 100%;*/
+  height: 100%;
 }
 
 .homepage .feature h1 {
@@ -170,11 +170,12 @@ main.homepage {
 
 .homepage .feature img {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
+  /* min-height: 100%; */
   max-height: 100%;
   min-width: 100%;
-  /*width: 100%;*/
-  /*overflow-y: hidden;*/
+  /* width: 100%; */
+  overflow-x: hidden;
   object-fit: cover;
 }
 
@@ -249,12 +250,12 @@ img {
 }
 
 .summary:hover * {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--theme-color);
 }
 
 .summary:active * {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--highlight-color);
 }
 
@@ -309,9 +310,9 @@ header {
   /*transition: all .5s;*/
 }
 
-header.transparent {
+/* header.transparent {
   background-color: rgba(0, 0, 0, 0);
-}
+} */
 
 header nav {
   padding: 0px 30px;
@@ -380,15 +381,15 @@ header a {
 }
 
 nav a:hover {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--theme-color);
 }
 
-nav a:hover h1 {color: var(--edge-color);}
-nav a:hover span {color: var(--edge-color);}
+nav a:hover h1 {color: var(--front-color);}
+nav a:hover span {color: var(--front-color);}
 
 nav a:active {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--highlight-color);
 }
 
@@ -398,7 +399,7 @@ nav li:hover > ul.submenu {
 }
 
 nav li.active > a {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--theme-color);
 }
 
@@ -406,27 +407,31 @@ nav li.active > a:active {
   background-color: var(--highlight-color);
 }
 
+nav label:hover i {
+  color: var(--front-color);
+}
+
 .submenu {
 	display: none;
   position: absolute;
-  width: 100%;
+  width: 130%;
 }
 
 .submenu > li {
-	width: 100%;
+  /* position: relative; */
+	min-width: 100%;
   background-color: var(--menu-color);
   font-weight: bold;
 }
 
 .submenu a {
-  margin-bottom: 1px;
+  /* margin-bottom: 1px; */
   color: var(--text-color);
 }
 
 header .submenu {
-  border: 1px solid var(--edge-color);
-  border-top: none;
-  margin-left: -1px;
+  box-shadow: 5px 5px 10px var(--shadow-color);
+  border: none;
   list-style-position: inside;
   list-style-type: disc;
 }
@@ -511,6 +516,7 @@ aside .submenu a {
   aside {
     position: relative;
     margin-left: calc(2 * var(--float-margins));
+    width: calc(100% - 4 * var(--float-margins));
   }
   main {
     margin-left: var(--float-margins);
@@ -544,9 +550,10 @@ aside .submenu a {
   }
 
   header .submenu {
+    width: 100%;
     position: relative;
     margin: 0;
-    border: none;
+    box-shadow: none;
   }
 
   .logo {
@@ -573,7 +580,7 @@ aside .submenu a {
 
   #navicon:checked ~ .menu a {
     height: 100%;
-    color: var(--edge-color);
+    color: var(--front-color);
     background-color: var(--theme-color);
   }
 
@@ -593,7 +600,7 @@ aside .submenu {
 }
 
 ::selection {
-  color: var(--edge-color);
+  color: var(--front-color);
   background-color: var(--theme-color);
 }
 
