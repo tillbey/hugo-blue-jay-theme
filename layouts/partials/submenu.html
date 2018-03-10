@@ -7,7 +7,7 @@
         <ul class="pagemenu">
           {{ range sort .Pages }}
             <li class="{{ if eq $.URL .URL }}active{{ end }}">
-              <a href="{{ .URL }}">{{ .Title }}</a>
+              <a href="{{ .URL }}">● {{ .Title }}</a>
               {{ if eq $.URL .URL }}
                 {{ .TableOfContents }}
               {{ end }}

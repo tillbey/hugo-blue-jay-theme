@@ -2,25 +2,25 @@
 
 @font-face {
   font-family: 'Source Sans Pro';
-  src: '/fonts/SourceSansPro-Regular.otf.woff';
+  src: '../fonts/SourceSansPro-Regular.otf.woff';
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Source Sans Pro';
-  src: '/fonts/SourceSansPro-It.otf.woff';
+  src: '../fonts/SourceSansPro-It.otf.woff';
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'Source Sans Pro';
-  src: '/fonts/SourceSansPro-Bold.otf.woff';
+  src: '../fonts/SourceSansPro-Bold.otf.woff';
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'Source Sans Pro';
-  src: '/fonts/SourceSansPro-BoldIt.otf.woff';
+  src: '../fonts/SourceSansPro-BoldIt.otf.woff';
   font-weight: bold;
   font-style: italic;
 }
@@ -429,14 +429,18 @@ nav label:hover i {
 header .submenu {
   box-shadow: 5px 5px 10px var(--shadow-color);
   border: none;
-  list-style-position: inside;
-  list-style-type: disc;
+  /* list-style-position: inside;
+  list-style-type: disc; */
 }
 
 header .submenu a {
   box-sizing: border-box;
   padding: 5px 15px;
   height: 30px;
+}
+
+header .submenu a::before {
+  content: '● ';
 }
 
 header .pagemenu {
@@ -478,8 +482,8 @@ aside .submenu {
 }
 
 .pagemenu {
-  list-style-position: inside;
-  list-style-type: disc;
+  /* list-style-position: inside; */
+  /* list-style-type: disc; */
 }
 
 .pagemenu > li {
@@ -554,7 +558,7 @@ aside .submenu a {
   }
 
   .logo {
-    width: 120px;
+    width: 130px;
     display: block;
     float: none;
     margin: 0 auto;
